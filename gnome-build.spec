@@ -1,3 +1,5 @@
+%define _requires_exceptions perl(GBF::Make)
+
 %define name	gnome-build
 %define version 0.1.4
 
@@ -9,7 +11,7 @@
 Summary:	Automake/conf-based project managing framework for GNOME
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	GPL
 Group:		Development/GNOME and GTK+
 URL:		http://www.gnome.org/projects/devtools/gnomebuild.shtml
