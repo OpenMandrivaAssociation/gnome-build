@@ -7,7 +7,7 @@
 %define lib_major 0
 %define libname_basic gbf
 %define libname %mklibname %{libname_basic}- %{api_version} %{lib_major}
-%define develname %mklibname -d %{libname_basic}- %{api_version}
+%define develname %mklibname -d %{libname_basic}
 
 Summary:	Automake/conf-based project managing framework for GNOME
 Name:		%{name}
@@ -53,6 +53,7 @@ Group:		Development/GNOME and GTK+
 Requires:	%{libname} = %{version}
 Provides:	%{libname}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
+Provides:	lib%{libname_basic}-devel = %{version}-%{release}
 Obsoletes:	%{libname}-devel < 0.1.7 
 
 %description	-n %{develname}
