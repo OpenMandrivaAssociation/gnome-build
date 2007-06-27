@@ -55,7 +55,7 @@ Provides:	%{libname}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 Obsoletes:	%{libname}-devel < 0.1.7 
 
-%description	-n %{libname}_%{lib_major}-devel
+%description	-n %{develname}
 Gnome-build is a GObject-based framework for managing projects and
 specifically automake/conf-based projects.  It can parse the
 configure.in and Makefile.am files to build an internal XML
