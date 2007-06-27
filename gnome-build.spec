@@ -95,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_libdir}/%{name}-1.0
 
-%files -n %{libname
+%files -n %{libname}
 %defattr(-, root, root)
 %{_libdir}/lib*.so.*
 
@@ -103,6 +103,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %doc ChangeLog
 %{_includedir}/*
+%dir %{_includedir}/gnome-build-1.0
+%{_includedir}/gnome-build-1.0
 %{_libdir}/lib*.so
 #%{_libdir}/lib*.la
-%{_libdir}/pkgconfig/*.pc
+%{_libdir}/pkgconfig/*
