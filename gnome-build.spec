@@ -1,12 +1,13 @@
 %define _requires_exceptions perl(GBF::Make)
 
 %define name	gnome-build
-%define version 0.1.6
+%define version 0.1.7
 
 %define api_version 1
 %define lib_major 0
 %define libname_basic gbf
-%define libname %mklibname gbf- %{api_version}
+%define libname %mklibname %{libname_basic}- %{api_version} %{lib_major}
+%define develname %mklibname -d %{libname_basic}- %{api_version}
 
 Summary:	Automake/conf-based project managing framework for GNOME
 Name:		%{name}
@@ -34,12 +35,11 @@ specifically automake/conf-based projects.  It can parse the
 configure.in and Makefile.am files to build an internal XML
 representation of the project.
 
-%package	-n %{libname}_%{lib_major}
+%package	-n %{libname}
 Summary:	Automake/conf-based project managing framework for GNOME
 Group:		System/Libraries
-Provides:	%{libname} = %{version}-%{release}
 
-%description	-n %{libname}_%{lib_major}
+%description	-n %{libname}
 Gnome-build is a GObject-based framework for managing projects and
 specifically automake/conf-based projects.  It can parse the
 configure.in and Makefile.am files to build an internal XML
@@ -47,12 +47,13 @@ representation of the project.
 
 This package contains main libraries for Gnome-build Framework.
 
-%package	-n %{libname}_%{lib_major}-devel
+%package	-n %{develname}
 Summary:	Header and development for Gnome Build Framework
 Group:		Development/GNOME and GTK+
-Requires:	%{libname}_%{lib_major} = %{version}
+Requires:	%{libname} = %{version}
 Provides:	%{libname}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes:	%{libname}-devel < 0.1.7 
 
 %description	-n %{libname}_%{lib_major}-devel
 Gnome-build is a GObject-based framework for managing projects and
@@ -83,8 +84,8 @@ find %{buildroot} -type f -name "*.a" -exec rm -f {} ';'
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -n %{libname}_%{lib_major} -p /sbin/ldconfig
-%postun -n %{libname}_%{lib_major} -p /sbin/ldconfig
+%post -n %{libname} -p /sbin/ldconfig
+%postun -n %{libname} -p /sbin/ldconfig
 
 %files -f %{gettext_package}.lang
 %defattr(-, root, root)
@@ -94,16 +95,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_libdir}/%{name}-1.0
 
-%files -n %{libname}_%{lib_major}
+%files -n %{libname
 %defattr(-, root, root)
 %{_libdir}/lib*.so.*
 
-%files -n %{libname}_%{lib_major}-devel
+%files -n %{develname}
 %defattr(-, root, root)
 %doc ChangeLog
 %{_includedir}/*
 %{_libdir}/lib*.so
 #%{_libdir}/lib*.la
 %{_libdir}/pkgconfig/*.pc
-
-
