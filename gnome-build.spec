@@ -3,8 +3,8 @@
 %define name	gnome-build
 %define version 0.2.0
 
-%define api_version 2
-%define lib_major 0
+%define api_version 1
+%define lib_major 1
 %define libname_basic gbf
 %define libname %mklibname %{libname_basic}- %{api_version} %{lib_major}
 %define develname %mklibname -d %{libname_basic}
@@ -17,17 +17,8 @@ License:	GPL
 Group:		Development/GNOME and GTK+
 URL:		http://www.gnome.org/projects/devtools/gnomebuild.shtml
 Buildroot:	%{_tmppath}/%{name}-%{version}-buildroot
-
 Source:		ftp://ftp.gnome.org/pub/gnome/sources/%{name}/0.1/%{name}-%{version}.tar.bz2
-BuildRequires:	gtk2-devel
-BuildRequires:	libgdl-devel
-BuildRequires:	libxml2-devel
-BuildRequires:	gnome-vfs2-devel
-BuildRequires:	libgnome2-devel
-BuildRequires:	libbonoboui2-devel
-BuildRequires:	libgnomeui2-devel
-BuildRequires:	gnome-common
-BuildRequires:  intltool, libtool, gettext, libgdl-devel, gdl, gnome-python-gdl
+BuildRequires:  intltool libgdl-devel gnome-python-gdl
 
 %description
 Gnome-build is a GObject-based framework for managing projects and
@@ -69,18 +60,15 @@ compiling or developing applications that need Gnome-build Framework.
 %setup -q
 
 %build
-%configure --disable-static
-make LIBTOOL=%{_prefix}/bin/libtool
+%configure2_5x --disable-static
+# fwang: parallel build fails in some unknown cases
+make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
-make DESTDIR=%{buildroot} install
-find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
-find %{buildroot} -type f -name "*.a" -exec rm -f {} ';'
 
-%define gettext_package gbf-1
-%{find_lang} %{gettext_package}
+%find_lang gbf-1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -88,23 +76,22 @@ rm -rf $RPM_BUILD_ROOT
 %post -n %{libname} -p /sbin/ldconfig
 %postun -n %{libname} -p /sbin/ldconfig
 
-%files -f %{gettext_package}.lang
+%files -f gbf-1.lang
 %defattr(-, root, root)
 %doc AUTHORS MAINTAINERS
 %{_bindir}/*
 %{_datadir}/pixmaps/*
 %{_datadir}/%{name}
-%{_libdir}/%{name}-2.0
+%{_libdir}/%{name}-1.0
 
 %files -n %{libname}
 %defattr(-, root, root)
-%{_libdir}/lib*.so.*
+%{_libdir}/lib*.so.%{lib_major}*
 
 %files -n %{develname}
 %defattr(-, root, root)
 %doc ChangeLog
-%{_includedir}/*
-%dir %{_includedir}/gnome-build-2.0
-%{_includedir}/gnome-build-2.0
-%{_libdir}/lib*.so
+%{_includedir}/gnome-build-1.0
+%{_libdir}/*.so
+%{_libdir}/*.la
 %{_libdir}/pkgconfig/*
