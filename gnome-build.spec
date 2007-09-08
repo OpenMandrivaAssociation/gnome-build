@@ -1,9 +1,9 @@
 %define _requires_exceptions perl(GBF::Make)
 
 %define name	gnome-build
-%define version 0.1.7
+%define version 0.2.0
 
-%define api_version 1
+%define api_version 2
 %define lib_major 0
 %define libname_basic gbf
 %define libname %mklibname %{libname_basic}- %{api_version} %{lib_major}
@@ -54,7 +54,7 @@ Requires:	%{libname} = %{version}
 Provides:	%{libname}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{libname_basic}-devel = %{version}-%{release}
-Obsoletes:	%{libname}-devel < 0.1.7 
+Obsoletes:	%mklibname -d gbf- 1 0
 
 %description	-n %{develname}
 Gnome-build is a GObject-based framework for managing projects and
@@ -94,7 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/*
 %{_datadir}/pixmaps/*
 %{_datadir}/%{name}
-%{_libdir}/%{name}-1.0
+%{_libdir}/%{name}-2.0
 
 %files -n %{libname}
 %defattr(-, root, root)
@@ -104,8 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %doc ChangeLog
 %{_includedir}/*
-%dir %{_includedir}/gnome-build-1.0
-%{_includedir}/gnome-build-1.0
+%dir %{_includedir}/gnome-build-2.0
+%{_includedir}/gnome-build-2.0
 %{_libdir}/lib*.so
-#%{_libdir}/lib*.la
 %{_libdir}/pkgconfig/*
