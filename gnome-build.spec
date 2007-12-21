@@ -16,6 +16,7 @@ Release:	%mkrel 1
 License:	GPL
 Group:		Development/GNOME and GTK+
 URL:		http://www.gnome.org/projects/devtools/gnomebuild.shtml
+Buildroot:	%{_tmppath}/%{name}-%{version}-buildroot
 Source:		ftp://ftp.gnome.org/pub/gnome/sources/%{name}/0.1/%{name}-%{version}.tar.bz2
 BuildRequires:  intltool libgdl-devel gnome-python-gdl
 
