@@ -1,7 +1,7 @@
 %define _requires_exceptions perl(GBF::Make)
 
 %define name	gnome-build
-%define version 0.2.0
+%define version 0.2.1
 
 %define api_version 1
 %define lib_major 1
@@ -13,7 +13,7 @@ Summary:	Automake/conf-based project managing framework for GNOME
 Name:		%{name}
 Version:	%{version}
 Release:	%mkrel 1
-License:	GPL
+License:	GPLv2+
 Group:		Development/GNOME and GTK+
 URL:		http://www.gnome.org/projects/devtools/gnomebuild.shtml
 Buildroot:	%{_tmppath}/%{name}-%{version}-buildroot
