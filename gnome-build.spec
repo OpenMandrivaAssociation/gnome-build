@@ -6,7 +6,7 @@
 %define api_version 1
 %define lib_major 1
 %define libname_basic gbf
-%define libname %mklibname %{libname_basic}- %{api_version} %{lib_major}
+%define libname %mklibname %{libname_basic} %{api_version} %{lib_major}
 %define develname %mklibname -d %{libname_basic}
 
 Summary:	Automake/conf-based project managing framework for GNOME
@@ -29,6 +29,7 @@ representation of the project.
 %package	-n %{libname}
 Summary:	Automake/conf-based project managing framework for GNOME
 Group:		System/Libraries
+Obsoletes:	%mklibname gbf- 1 1
 
 %description	-n %{libname}
 Gnome-build is a GObject-based framework for managing projects and
