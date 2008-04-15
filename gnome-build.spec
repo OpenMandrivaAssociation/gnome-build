@@ -1,7 +1,7 @@
 %define _requires_exceptions perl(GBF::Make)
 
 %define name	gnome-build
-%define version 0.2.1
+%define version 0.2.4
 
 %define api_version 1
 %define lib_major 1
