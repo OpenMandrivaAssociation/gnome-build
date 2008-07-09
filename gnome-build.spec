@@ -1,10 +1,10 @@
 %define _requires_exceptions perl(GBF::Make)
 
 %define name	gnome-build
-%define version 0.2.4
+%define version 0.3.0
 
 %define api_version 1
-%define lib_major 1
+%define lib_major 2
 %define libname_basic gbf
 %define libname %mklibname %{libname_basic} %{api_version} %{lib_major}
 %define develname %mklibname -d %{libname_basic}
@@ -17,7 +17,7 @@ License:	GPLv2+
 Group:		Development/GNOME and GTK+
 URL:		http://www.gnome.org/projects/devtools/gnomebuild.shtml
 Buildroot:	%{_tmppath}/%{name}-%{version}-buildroot
-Source:		ftp://ftp.gnome.org/pub/gnome/sources/%{name}/0.1/%{name}-%{version}.tar.bz2
+Source:		ftp://ftp.gnome.org/pub/gnome/sources/%{name}/0.3/%{name}-%{version}.tar.bz2
 BuildRequires:  intltool libgdl-devel gnome-python-gdl
 
 %description
@@ -29,7 +29,6 @@ representation of the project.
 %package	-n %{libname}
 Summary:	Automake/conf-based project managing framework for GNOME
 Group:		System/Libraries
-Obsoletes:	%mklibname gbf- 1 1
 
 %description	-n %{libname}
 Gnome-build is a GObject-based framework for managing projects and
@@ -61,6 +60,8 @@ compiling or developing applications that need Gnome-build Framework.
 %setup -q
 
 %build
+export CFLAGS="%{optflags} -D_GNU_SOURCE"
+export CXXFLAGS="%{optflags} -D_GNU_SOURCE"
 %configure2_5x --disable-static
 # fwang: parallel build fails in some unknown cases
 make
