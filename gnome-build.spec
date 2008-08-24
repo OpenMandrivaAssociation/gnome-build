@@ -1,7 +1,7 @@
 %define _requires_exceptions perl(GBF::Make)
 
 %define name	gnome-build
-%define version 0.3.0
+%define version 2.23.90
 
 %define api_version 1
 %define lib_major 2
@@ -17,7 +17,7 @@ License:	GPLv2+
 Group:		Development/GNOME and GTK+
 URL:		http://www.gnome.org/projects/devtools/gnomebuild.shtml
 Buildroot:	%{_tmppath}/%{name}-%{version}-buildroot
-Source:		ftp://ftp.gnome.org/pub/gnome/sources/%{name}/0.3/%{name}-%{version}.tar.bz2
+Source:		ftp://ftp.gnome.org/pub/gnome/sources/%{name}/2.23/%{name}-%{version}.tar.bz2
 BuildRequires:  intltool libgdl-devel gnome-python-gdl
 
 %description
