@@ -18,7 +18,7 @@ Group:		Development/GNOME and GTK+
 URL:		http://www.gnome.org/projects/devtools/gnomebuild.shtml
 Buildroot:	%{_tmppath}/%{name}-%{version}-buildroot
 Source:		ftp://ftp.gnome.org/pub/gnome/sources/%{name}/2.24/%{name}-%{version}.tar.bz2
-BuildRequires:  intltool libgdl-devel gnome-python-gdl
+BuildRequires:  intltool libgdl-devel
 
 %description
 Gnome-build is a GObject-based framework for managing projects and
