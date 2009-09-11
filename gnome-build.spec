@@ -12,7 +12,7 @@
 Summary:	Automake/conf-based project managing framework for GNOME
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
 URL:		http://www.gnome.org/projects/devtools/gnomebuild.shtml
