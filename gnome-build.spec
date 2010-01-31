@@ -19,6 +19,7 @@ URL:		http://www.gnome.org/projects/devtools/gnomebuild.shtml
 Buildroot:	%{_tmppath}/%{name}-%{version}-buildroot
 Source:		ftp://ftp.gnome.org/pub/gnome/sources/%{name}/2.24/%{name}-%{version}.tar.bz2
 BuildRequires:  intltool libgdl-devel gnomeui2-devel
+BuildRequires:  libglade2-devel >= 2.0.1
 
 %description
 Gnome-build is a GObject-based framework for managing projects and
