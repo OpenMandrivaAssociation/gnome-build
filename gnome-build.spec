@@ -16,10 +16,9 @@ Release:	%mkrel 4
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
 URL:		http://www.gnome.org/projects/devtools/gnomebuild.shtml
-Buildroot:	%{_tmppath}/%{name}-%{version}-buildroot
-Source:		ftp://ftp.gnome.org/pub/gnome/sources/%{name}/2.24/%{name}-%{version}.tar.bz2
-BuildRequires:  intltool libgdl-devel gnomeui2-devel
-BuildRequires:  libglade2-devel >= 2.0.1
+Source01:	ftp://ftp.gnome.org/pub/gnome/sources/%{name}/2.24/%{name}-%{version}.tar.bz2
+BuildRequires:  intltool libgdl-devel pkgconfig(libgnomeui-2.0)
+BuildRequires:  pkgconfig(libglade-2.0) >= 2.0.1
 
 %description
 Gnome-build is a GObject-based framework for managing projects and
@@ -102,3 +101,85 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.so
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/*
+
+
+%changelog
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 2.24.1-4mdv2011.0
++ Revision: 610917
+- rebuild
+
+* Sun Jan 31 2010 Funda Wang <fwang@mandriva.org> 2.24.1-3mdv2010.1
++ Revision: 498671
+- Br glade
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Sun Nov 09 2008 Oden Eriksson <oeriksson@mandriva.com> 2.24.1-2mdv2009.1
++ Revision: 301579
+- rebuilt against new libxcb
+
+* Wed Oct 22 2008 Funda Wang <fwang@mandriva.org> 2.24.1-1mdv2009.1
++ Revision: 296511
+- New version 2.24.1
+
+* Tue Sep 23 2008 Funda Wang <fwang@mandriva.org> 2.24.0-1mdv2009.0
++ Revision: 287177
+- BR gnomeui
+- python-gdl is not needed
+- New version 2.24.0
+
+* Mon Aug 25 2008 Funda Wang <fwang@mandriva.org> 2.23.90-1mdv2009.0
++ Revision: 275592
+- New version 2.23.90
+
+* Wed Jul 09 2008 Funda Wang <fwang@mandriva.org> 0.3.0-1mdv2009.0
++ Revision: 233089
+- New version 0.3.0
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Tue Apr 15 2008 Funda Wang <fwang@mandriva.org> 0.2.4-1mdv2009.0
++ Revision: 193633
+- New version 0.2.4
+
+* Sat Feb 02 2008 Funda Wang <fwang@mandriva.org> 0.2.1-1mdv2008.1
++ Revision: 161354
+- correct libname
+- New version 0.2.1
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Sat Sep 08 2007 Funda Wang <fwang@mandriva.org> 0.2.0-1mdv2008.0
++ Revision: 82437
+- fix building
+- new major of library
+- New versino 0.2.0
+
+* Wed Jun 27 2007 Funda Wang <fwang@mandriva.org> 0.1.7-1mdv2008.0
++ Revision: 45053
+- More simplified develpackage name
+- fix file list
+- New version
+
+* Sun May 13 2007 Funda Wang <fwang@mandriva.org> 0.1.6-1mdv2008.0
++ Revision: 26527
+- New upstream version
+
+* Mon Apr 30 2007 Lenny Cartier <lenny@mandriva.org> 0.1.4-5mdv2008.0
++ Revision: 19702
+- requires exception on perl module
+
+
+* Thu Mar 01 2007 Jérôme Soyer <saispo@mandriva.org> 0.1.4-4mdv2007.0
++ Revision: 130501
+- Bump Release
+- Fix BR
+- Fix BR
+- Import gnome-build
+
