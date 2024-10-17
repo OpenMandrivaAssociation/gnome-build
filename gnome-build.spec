@@ -15,7 +15,7 @@ Version:	%{version}
 Release:	%mkrel 4
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
-URL:		http://www.gnome.org/projects/devtools/gnomebuild.shtml
+URL:		https://www.gnome.org/projects/devtools/gnomebuild.shtml
 Source01:	ftp://ftp.gnome.org/pub/gnome/sources/%{name}/2.24/%{name}-%{version}.tar.bz2
 BuildRequires:  intltool libgdl-devel pkgconfig(libgnomeui-2.0)
 BuildRequires:  pkgconfig(libglade-2.0) >= 2.0.1
