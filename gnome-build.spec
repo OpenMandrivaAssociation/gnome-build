@@ -17,6 +17,11 @@ License:	GPLv2+
 Group:		Development/GNOME and GTK+
 URL:		https://www.gnome.org/projects/devtools/gnomebuild.shtml
 Source01:	ftp://ftp.gnome.org/pub/gnome/sources/%{name}/2.24/%{name}-%{version}.tar.bz2
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  intltool libgdl-devel pkgconfig(libgnomeui-2.0)
 BuildRequires:  pkgconfig(libglade-2.0) >= 2.0.1
 
